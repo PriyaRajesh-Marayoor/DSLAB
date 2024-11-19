@@ -5,6 +5,7 @@ void push();
 void pop();
 void peek();
 void display();
+void search();
 #include<stdio.h>
 #include<stdlib.h>
 void main()
@@ -15,8 +16,8 @@ void main()
     printf("1.PUSH\n");
     printf("2.POP\n");
     printf("3.PEEK\n");
-    printf("4.DISPLAY\n");
-    printf("5.EXIT\n");
+    printf("4.DISPLAY\n5.SEARCH\n");
+    printf("6.EXIT\n");
     printf("Enter your choice\n");
     scanf("%d",&c);
 
@@ -36,6 +37,9 @@ void main()
                 display();
                 break;
         case 5:
+                search();
+                break;
+        case 6:
                 exit(1);
                 break;
         default :
@@ -98,3 +102,22 @@ void display()
             printf("%d ",stack[i]);
         }
 }
+void search()
+{
+    int s,p,i,flag=0;
+    printf("The element you are searching for :");
+    scanf("%d",&s);
+    for(i=0;i<top;i++)
+    {
+        if(s==stack[i])
+        {
+            printf("The element found at position %d",i+1);
+            flag=1;
+        }
+    }
+if(flag==0)
+{
+    printf("Element not found");
+}
+}
+    
