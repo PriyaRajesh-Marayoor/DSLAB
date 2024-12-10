@@ -1,6 +1,6 @@
-int stack[5];
+#define N 5
+int stack[N];
 int top=-1;
-int N=5;
 void push();
 void pop();
 void peek();
@@ -10,7 +10,7 @@ void search();
 #include<stdlib.h>
 void main()
 {   
-    int c,n=N;
+    int c;
     while(1){
     printf("\n***STACK OPERATIONS***\n");
     printf("1.PUSH\n");
