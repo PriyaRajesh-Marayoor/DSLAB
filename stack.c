@@ -95,19 +95,22 @@ void peek()
 void display()
 {
     int i;
-    
+        if(top==-1){
+            printf("Stack empty");
+        }
+        else{
         printf("the stack elements are : \n");
         for(i=top;i>=0;i--)
         {
             printf("%d ",stack[i]);
-        }
+        }}
 }
 void search()
 {
     int s,p,i,flag=0;
     printf("The element you are searching for :");
     scanf("%d",&s);
-    for(i=0;i<top;i++)
+    for(i=0;i<=top;i++)
     {
         if(s==stack[i])
         {

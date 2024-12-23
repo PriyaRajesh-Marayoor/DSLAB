@@ -37,10 +37,10 @@ void display(){
     }
     else{
         printf("The queue is : \n");
-        while(i!=rear){
+       do{
             printf("%d ",queue[i]);
             i=(i+1) % N;
-        }
+        } while(i!=(rear+1)%N);
     }
 }
 void peek(){
