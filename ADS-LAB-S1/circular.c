@@ -4,7 +4,7 @@ struct node{
     int data;
     struct node *next;
 };
-struct node *temp,*newnode,*tail=NULL,*current,*head;
+struct node *temp,*newnode,*tail=NULL,*current;
 void insertbeg(int x){
     newnode=(struct node*)malloc(sizeof(struct node));
     newnode->data=x;
@@ -66,10 +66,7 @@ void insertpos(int x){
 }
 void deletebeg(){
     temp=tail->next;
-    if(tail==NULL){
-        printf("list empty");
-    }
-    if(temp->next=temp){
+    if(temp->next==temp){
         tail=NULL;
         free(temp);
     }
@@ -105,14 +102,14 @@ void deletepos(){
     printf("Enter the position to delete : ");
     scanf("%d",&p);
     temp=tail->next;
-    while(temp->next!=tail){
+    while(temp!=tail){
         temp=temp->next;
         c++;
     }
     if(tail==NULL){
         printf("List empty");
     } 
-    else if(p<=0||p>c){
+    else if(p<1 || p>c){
         printf("Invalid position");
     }
     else if(p==1){
@@ -133,23 +130,34 @@ void deletepos(){
     }
 }
 void search(){
-    int s,flag=0,c=1;;
+    int s,flag=0,c=1;
     printf("Enter the element you are searching for :");
-    scanf("%d",&s);
-    temp=tail->next;
-    while(temp->next!=tail->next){
-        if(s==temp->data)
-        {
-            printf("Element found at position %d",c);
-            flag=1;
+        scanf("%d",&s);
+    if(tail==NULL){
+        printf("List empty ");
+    }
+    else{
+        temp=tail->next;
+        if(temp->next==temp){
+            if(s==temp->data){
+                printf("Element found at position 1 ");
+                flag=1;
+            }
         }
-        temp=temp->next;
-        c++;
-    }
-    if(flag==0){
-        printf("Element not found !");
-    }
-}
+        else{
+            do{
+                if(s==temp->data)
+                {
+                    printf("Element found at position %d",c);
+                    flag=1;
+                }
+                temp=temp->next;
+                c++;
+            }while(temp!=tail->next);}
+        if(flag==0){
+            printf("Element not found !");
+        }
+}}
 void display(){
     if(tail==NULL){
         printf("List empty");
